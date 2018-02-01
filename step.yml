@@ -1,0 +1,38 @@
+title: |-
+  Remote Gist Bash Script Runner
+summary: |
+  Downloads the content of the given Github Gist and runs it as a bash script.
+description: |
+  Downloads the content of the given Github Gist and runs it as a bash script.
+website: https://github.com/jsauve/bitrise-step-remote-gist-bash-script-runner
+source_code_url: https://github.com/jsauve/bitrise-step-remote-gist-bash-script-runner
+support_url: https://github.com/jsauve/bitrise-step-remote-gist-bash-script-runner/issues
+host_os_tags:
+  - osx-10.9
+  - osx-10.10
+project_type_tags: []
+type_tags:
+  - script
+  - bash
+  - runner
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+dependencies: []
+run_if: ""
+inputs:
+  - gist_url: ""
+    opts:
+      title: "Gist URL"
+      description: |
+        URL of a Github Gist that contains valid bash scripts(s). (A main Gist URL, *not* a _raw_ Gist URL.)
+      is_required: true
+  - exit_on_failure: "true"
+    opts:
+      title: "Exit this step if any remote scripts fail"
+      description: |
+        Defaults to *true*. If *true*, the step will exit with if any of the remote gist files fail to load or return a failure code (exit > 0). If *false*, subsequent gist files will attempt to load, even if previous ones fail. Note that Gists can contain more than one file.
+      is_required: true
+      value_options:
+      - "true"
+      - "false"
